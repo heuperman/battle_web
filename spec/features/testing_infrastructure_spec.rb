@@ -6,3 +6,6 @@ feature 'Testing infrastructure' do
     expect(page).to have_content 'Testing infrastructure working!'
   end
 end
+
+#visit)
+#save and open page
