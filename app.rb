@@ -1,10 +1,11 @@
 require 'sinatra/base'
 
+# Acts as the controller for the battle app.
 class Battle < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb :players
+    erb :index
   end
 
   post '/enter_names' do
@@ -19,5 +20,5 @@ class Battle < Sinatra::Base
     erb :names
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
