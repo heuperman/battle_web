@@ -6,6 +6,7 @@ require './lib/game'
 class Battle < Sinatra::Base
   enable :sessions
 
+
   get '/' do
     erb :index
   end
@@ -13,25 +14,25 @@ class Battle < Sinatra::Base
   post '/enter_names' do
     player1 = Player.new(params[:player1])
     player2 = Player.new(params[:player2])
-    $game = Game.new(player1, player2)
+    Game.set_session(player1, player2)
     redirect '/names'
   end
 
   get '/names' do
-    @game = $game
+    @game = Game.session
     @player1 = @game.player1.name
     @player2 = @game.player2.name
     erb :names
   end
 
   get '/attack' do
-    @game = $game
+    @game = Game.session
     @game.attack
     erb :attack
   end
 
   get '/victory' do
-    @game = $game
+    @game = Game.session
     @player1 = @game.player1.name
     @player2 = @game.player2.name
     erb :victory
