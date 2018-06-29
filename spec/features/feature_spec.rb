@@ -18,4 +18,9 @@ feature 'Attacking player 2' do
     click_button('Attack Yvonne')
     expect(page).to have_content 'You attacked Yvonne!'
   end
+  scenario 'reduce hitpoints of attacked player by 10' do
+    sign_in_and_play
+    click_button('Attack Yvonne')
+    expect(page).to have_content 'Yvonne has 50HP left'
+  end
 end
