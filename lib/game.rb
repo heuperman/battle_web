@@ -7,8 +7,8 @@ class Game
     @counter = 0
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack
+    counter.even? ? player2.receive_damage : player1.receive_damage
     @counter += 1
   end
 end

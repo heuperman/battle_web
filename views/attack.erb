@@ -1,4 +1,8 @@
+<% if @game.counter.odd? %>
 <h2>You attacked <%=@game.player2.name%>!</h2>
+<% else %>
+<h2>You attacked <%=@game.player1.name%>!</h2>
+<% end %>
 <form action="/names">
   <input type="submit" value="ok"/>
 </form>
