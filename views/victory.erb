@@ -1,0 +1,9 @@
+<% if @game.player1.hitpoints <= 0 %>
+Game over: <%= @game.player2.name %> is victorious!
+<% end %>
+<% if @game.player2.hitpoints <= 0 %>
+Game over: <%= @game.player1.name %> is victorious!
+<% end %>
+<% if @game.player1.hitpoints <= 0 && @game.player2.hitpoints <= 0 %>
+Game over: You are both losers!
+<% end %>

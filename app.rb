@@ -30,5 +30,12 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  get '/victory' do
+    @game = $game
+    @player1 = @game.player1.name
+    @player2 = @game.player2.name
+    erb :victory
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
