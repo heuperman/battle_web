@@ -4,11 +4,11 @@
 <h2>You attacked <%=@game.player1.name%>!</h2>
 <% end %>
 <% if @game.player2.hitpoints <= 0 || @game.player1.hitpoints <= 0 %>
-<form action="/victory">
+<form action="/game/victory">
   <input type="submit" value="ok"/>
 </form>
 <% else %>
-<form action="/names">
+<form action="/game/names">
   <input type="submit" value="ok"/>
 </form>
 <% end %>

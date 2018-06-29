@@ -9,11 +9,11 @@
 <h3> <%=@player2%>: <%= @game.player2.hitpoints %>HP </h3>
 <h3> <%=@player1%>: <%= @game.player1.hitpoints %>HP </h3>
 <% if @game.counter.even? %>
-<form action="/attack">
+<form action="/game/attack">
   <input type="submit" value="Attack <%=@player2%>"/>
 </form>
 <% else %>
-<form action="/attack">
+<form action="/game/attack">
   <input type="submit" value="Attack <%=@player1%>"/>
 </form>
 <% end %>
