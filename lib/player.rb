@@ -7,7 +7,7 @@ class Player
     @hitpoints = 60
   end
 
-  def receive_damage
-    @hitpoints -= 10
+  def receive_damage(amount)
+    @hitpoints -= amount
   end
 end

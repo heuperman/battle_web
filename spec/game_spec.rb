@@ -8,6 +8,11 @@ describe Game do
       expect(player2).to receive(:receive_damage)
       game.attack
     end
+    it 'deals random damage' do
+      srand(100)
+      expect(player2).to receive(:receive_damage).with 18
+      game.attack
+    end
   end
 
   describe '#player1' do

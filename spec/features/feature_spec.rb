@@ -22,10 +22,11 @@ feature 'Attacking player 2' do
     click_button('Attack Yvonne')
     expect(page).to have_content 'You attacked Yvonne!'
   end
-  scenario 'reduce hitpoints of attacked player by 10' do
+  scenario 'reduce hitpoints of attacked player' do
+    srand(100)
     sign_in_and_play
     attack_player_2
-    expect(page).to have_content 'Yvonne: 50HP'
+    expect(page).to have_content 'Yvonne: 42HP'
   end
 end
 
@@ -36,11 +37,12 @@ feature 'Attacking player 1' do
     click_button('Attack Kees')
     expect(page).to have_content 'You attacked Kees!'
   end
-  scenario 'reduce hitpoints of attacked player by 10' do
+  scenario 'reduce hitpoints of attacked player' do
+    srand(100)
     sign_in_and_play
     attack_player_2
     attack_player_1
-    expect(page).to have_content 'Kees: 50HP'
+    expect(page).to have_content 'Kees: 47HP'
   end
 end
 
@@ -55,8 +57,9 @@ end
 
 feature 'Game over' do
   scenario 'shows message when HP is reduced to 0' do
+    srand(100)
     sign_in_and_play
-    5.times do
+    2.times do
       attack_player_2
       attack_player_1
     end

@@ -1,7 +1,12 @@
 class Game
   attr_reader :player1, :player2, :counter
   def attack
-    counter.even? ? player2.receive_damage : player1.receive_damage
+    amount = rand(10..30)
+    if counter.even?
+      player2.receive_damage(amount)
+    else
+      player1.receive_damage(amount)
+    end
     @counter += 1
   end
 
