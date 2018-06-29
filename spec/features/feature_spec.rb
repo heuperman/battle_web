@@ -24,8 +24,7 @@ feature 'Attacking player 2' do
   end
   scenario 'reduce hitpoints of attacked player by 10' do
     sign_in_and_play
-    click_button('Attack Yvonne')
-    click_button('ok')
+    attack_player_2
     expect(page).to have_content 'Yvonne: 50HP'
   end
 end
@@ -33,17 +32,14 @@ end
 feature 'Attacking player 1' do
   scenario 'receive confirmation after attack' do
     sign_in_and_play
-    click_button('Attack Yvonne')
-    click_button('ok')
+    attack_player_2
     click_button('Attack Kees')
     expect(page).to have_content 'You attacked Kees!'
   end
   scenario 'reduce hitpoints of attacked player by 10' do
     sign_in_and_play
-    click_button('Attack Yvonne')
-    click_button('ok')
-    click_button('Attack Kees')
-    click_button('ok')
+    attack_player_2
+    attack_player_1
     expect(page).to have_content 'Kees: 50HP'
   end
 end
@@ -54,5 +50,17 @@ feature 'Switching turns' do
     click_button('Attack Yvonne')
     click_button('ok')
     expect(page).to have_content "Yvonne's turn"
+  end
+end
+
+feature 'Game over' do
+  scenario 'shows message when HP is reduced to 0' do
+    sign_in_and_play
+    5.times do
+      attack_player_2
+      attack_player_1
+    end
+    attack_player_2
+    expect(page).to have_content 'Game over: Kees is victorious!'
   end
 end
