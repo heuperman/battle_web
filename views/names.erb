@@ -1,7 +1,12 @@
 <center>
-<h1> <%=@player1%> vs. <%=@player2%></h1>
+<% if @game.counter.even? %>
+<h2><%=@player1%>'s turn</h2>
+<% else %>
+<h2><%=@player2%>'s turn</h2>
+<% end %>
+<h1><%=@player1%> vs. <%=@player2%></h1>
 <h2>prepare for battle!</h2>
-<h3> <%=@player2%>: 60HP </h3>
+<h3> <%=@player2%>: <%= @game.player2.hitpoints %>HP </h3>
 <form action="/attack">
   <input type="submit" value="Attack <%=@player2%>"/>
 </form>

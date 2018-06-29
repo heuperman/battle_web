@@ -18,8 +18,9 @@ class Battle < Sinatra::Base
   end
 
   get '/names' do
-    @player1 = $game.player1.name
-    @player2 = $game.player2.name
+    @game = $game
+    @player1 = @game.player1.name
+    @player2 = @game.player2.name
     erb :names
   end
 

@@ -21,6 +21,16 @@ feature 'Attacking player 2' do
   scenario 'reduce hitpoints of attacked player by 10' do
     sign_in_and_play
     click_button('Attack Yvonne')
-    expect(page).to have_content 'Yvonne has 50HP left'
+    click_button('ok')
+    expect(page).to have_content 'Yvonne: 50HP'
+  end
+end
+
+feature 'Switching turns' do
+  scenario 'switching turns after each attack' do
+    sign_in_and_play
+    click_button('Attack Yvonne')
+    click_button('ok')
+    expect(page).to have_content "Yvonne's turn"
   end
 end

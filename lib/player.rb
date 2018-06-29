@@ -1,6 +1,6 @@
 # saves all the player information
 class Player
-  attr_accessor :name, :hitpoints
+  attr_reader :name, :hitpoints
 
   def initialize(name)
     @name = name
